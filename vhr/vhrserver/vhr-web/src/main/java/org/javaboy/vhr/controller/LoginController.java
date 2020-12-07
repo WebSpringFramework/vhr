@@ -24,7 +24,7 @@ import java.io.IOException;
 public class LoginController {
     @GetMapping("/login")
     public RespBean login() {
-        return RespBean.error("尚未登录，请登录!");
+        return RespBean.error("Not logged in yet, please log in!");
     }
 
     @GetMapping("/verifyCode")
@@ -34,6 +34,6 @@ public class LoginController {
         String text = code.getText();
         HttpSession session = request.getSession(true);
         session.setAttribute("verify_code", text);
-        VerificationCode.output(image,resp.getOutputStream());
+        VerificationCode.output(image, resp.getOutputStream());
     }
 }

@@ -23,7 +23,7 @@ import java.util.List;
  * @网站 http://www.javaboy.org
  * @时间 2019-09-29 7:37
  *
- * 这个类的作用，主要是根据用户传来的请求地址，分析出请求需要的角色
+ * The role of this class is mainly to analyze the role required by the request based on the request address sent by the user
  */
 @Component
 public class CustomFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {

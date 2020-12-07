@@ -22,6 +22,7 @@ public class MailSendTask {
     RabbitTemplate rabbitTemplate;
     @Autowired
     EmployeeService employeeService;
+
     @Scheduled(cron = "0/10 * * * * ?")
     public void mailResendTask() {
         List<MailSendLog> logs = mailSendLogService.getMailSendLogsByStatus();
@@ -30,7 +31,7 @@ public class MailSendTask {
         }
         logs.forEach(mailSendLog->{
             if (mailSendLog.getCount() >= 3) {
-                mailSendLogService.updateMailSendLogStatus(mailSendLog.getMsgId(), 2);//直接设置该条消息发送失败
+                mailSendLogService.updateMailSendLogStatus(mailSendLog.getMsgId(), 2);//直接设置该条消息发送失败 Directly set the message to send failed
             }else{
                 mailSendLogService.updateCount(mailSendLog.getMsgId(), new Date());
                 Employee emp = employeeService.getEmployeeById(mailSendLog.getEmpId());

@@ -5,7 +5,7 @@ import java.util.Date;
 public class MailSendLog {
     private String msgId;
     private Integer empId;
-    //0 消息投递中   1 投递成功   2投递失败
+    //0 Message delivery   1 Successful delivery   2 Delivery failed
     private Integer status;
     private String routeKey;
     private String exchange;

@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableCaching
-@MapperScan(basePackages = "org.javaboy.vhr.mapper")
+@MapperScan(basePackages = "org.javaboy.vhr.mapper") // NTT for mapping package Mybatics for xml query
 @EnableScheduling
 public class VhrApplication {
 

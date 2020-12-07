@@ -28,14 +28,14 @@ public class RabbitConfig {
         rabbitTemplate.setConfirmCallback((data, ack, cause) -> {
             String msgId = data.getId();
             if (ack) {
-                logger.info(msgId + ":消息发送成功");
-                mailSendLogService.updateMailSendLogStatus(msgId, 1);//修改数据库中的记录，消息投递成功
+                logger.info(msgId + ":Message sent successfully");
+                mailSendLogService.updateMailSendLogStatus(msgId, 1);//修改数据库中的记录，消息投递成功 Modify the record in the database, the message is delivered successfully
             } else {
-                logger.info(msgId + ":消息发送失败");
+                logger.info(msgId + ":Failed to send message");
             }
         });
         rabbitTemplate.setReturnCallback((msg, repCode, repText, exchange, routingkey) -> {
-            logger.info("消息发送失败");
+            logger.info("Message failed");
         });
         return rabbitTemplate;
     }

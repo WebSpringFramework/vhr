@@ -10,6 +10,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * User detail model for authentication security.
+ */
 public class Hr implements UserDetails {
     private Integer id;
 

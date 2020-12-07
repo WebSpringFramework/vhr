@@ -23,15 +23,7 @@ import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.util.Date;
 
-/**
- * @作者 江南一点雨
- * @公众号 江南一点雨
- * @微信号 a_java_boy
- * @GitHub https://github.com/lenve
- * @博客 http://wangsong.blog.csdn.net
- * @网站 http://www.javaboy.org
- * @时间 2019-11-24 7:59
- */
+
 @Component
 public class MailReceiver {
 
@@ -53,18 +45,18 @@ public class MailReceiver {
         Long tag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
         String msgId = (String) headers.get("spring_returned_message_correlation");
         if (redisTemplate.opsForHash().entries("mail_log").containsKey(msgId)) {
-            //redis 中包含该 key，说明该消息已经被消费过
-            logger.info(msgId + ":消息已经被消费");
-            channel.basicAck(tag, false);//确认消息已消费
+            // The key is included in redis, indicating that the message has been consumed
+            logger.info("Message has been consumed: " + msgId);
+            channel.basicAck(tag, false);//确认消息已消费 // Confirm message has been consumed
             return;
         }
-        //收到消息，发送邮件
+        // Receive message, send mail
         MimeMessage msg = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(msg);
         try {
             helper.setTo(employee.getEmail());
             helper.setFrom(mailProperties.getUsername());
-            helper.setSubject("入职欢迎");
+            helper.setSubject("Welcome");
             helper.setSentDate(new Date());
             Context context = new Context();
             context.setVariable("name", employee.getName());
