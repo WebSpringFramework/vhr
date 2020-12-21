@@ -64,9 +64,7 @@ public class HrService implements UserDetailsService {
         if (encoder.matches(oldpass, hr.getPassword())) {
             String encodePass = encoder.encode(pass);
             Integer result = hrMapper.updatePasswd(hrid, encodePass);
-            if (result == 1) {
-                return true;
-            }
+            return result == 1;
         }
         return false;
     }

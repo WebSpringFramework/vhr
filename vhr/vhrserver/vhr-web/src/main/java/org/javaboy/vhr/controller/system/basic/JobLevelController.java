@@ -1,6 +1,5 @@
 package org.javaboy.vhr.controller.system.basic;
 
-import org.apache.ibatis.annotations.Delete;
 import org.javaboy.vhr.model.JobLevel;
 import org.javaboy.vhr.model.RespBean;
 import org.javaboy.vhr.service.JobLevelService;

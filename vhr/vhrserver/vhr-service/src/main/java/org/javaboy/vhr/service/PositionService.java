@@ -2,7 +2,6 @@ package org.javaboy.vhr.service;
 
 import org.javaboy.vhr.mapper.PositionMapper;
 import org.javaboy.vhr.model.Position;
-import org.javaboy.vhr.model.RespBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
