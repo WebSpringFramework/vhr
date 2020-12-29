@@ -2,14 +2,14 @@ version: "3.8"
 services:
   mysql:
     image: mysql:8.0.22
-    # container_name: mysql
+    # container_name: hrm_mysql
     restart: always
-    volumes:
-      - ./mysql:/var/lib/mysql
     ports:
       - 3306:3306
     networks:
       - hrm_net
+    volumes:
+      - ./mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: hrm
       MYSQL_USER: hrm
@@ -20,32 +20,38 @@ services:
     # https://stackoverflow.com/questions/30747469/how-to-add-initial-users-when-starting-a-rabbitmq-docker-container
     # image: rabbitmq:3.8.9-management-alpine
     build: ./rabbitmq
-    container_name: hrm_rabbitmq
+    #container_name: hrm_rabbitmq
+    #restart: always
+    ports:
+      - 5672:5672
+      - 15672:5672
+    networks:
+      - hrm_net
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: hrm
       RABBITMQ_DEFAULT_PASS: NtT.1996
       RABBITMQ_DEFAULT_VHOST: hrm_net
-    volumes:
-      - ./rabbitmq:/var/lib/rabbitmq
+
+
+  redis:
+    image: redis:6.0.9-alpine
+    #container_name: hrm_redis
+    #restart: always
+    ports:
+      - 6379:6379
     networks:
       - hrm_net
-    restart: always
-    ports:
-      - "5672:5672"
-      - "15672:5672"
+    volumes:
+      - ./redis:/data
+    command: redis-server --requirepass NtT.1996
 
-#  redis:
-#    image: redis:6.0.9-alpine
-#    expose:
-#      - "6379"
-#    networks:
-#      - nestjs_example_network
-#    container_name: nestjs_example-redis
-#    restart: always
 
 volumes:
   hrm_mysql:
   hrm_rabbitmq:
+  hrm_redis:
 
 networks:
   hrm_net:
