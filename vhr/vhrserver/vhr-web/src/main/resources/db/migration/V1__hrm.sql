@@ -1,11 +1,13 @@
 /*
 SQLyog Ultimate v12.08 (32 bit)
-MySQL - 8.0.18 : Database - vhr
+MySQL - 8.0.18 : Database - hrm
 *********************************************************************
 */
 
+-- create schema hrm CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- create schema hrm CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; -- for dev
 
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 /*!40101 SET SQL_MODE=''*/;
 
@@ -18,18 +20,46 @@ MySQL - 8.0.18 : Database - vhr
 
 DROP TABLE IF EXISTS `adjustsalary`;
 
-CREATE TABLE `adjustsalary` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `eid` int(11) DEFAULT NULL,
-  `asDate` date DEFAULT NULL COMMENT '调薪日期',
-  `beforeSalary` int(11) DEFAULT NULL COMMENT '调前薪资',
-  `afterSalary` int(11) DEFAULT NULL COMMENT '调后薪资',
-  `reason` varchar(255) DEFAULT NULL COMMENT '调薪原因',
-  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`id`),
-  KEY `pid` (`eid`),
-  CONSTRAINT `adjustsalary_ibfk_1` FOREIGN KEY (`eid`) REFERENCES `employee` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `adjustsalary`
+(
+    `id`           int
+(
+    11
+) NOT NULL AUTO_INCREMENT,
+    `eid`          int
+(
+    11
+) DEFAULT NULL,
+    `asDate`       date DEFAULT NULL COMMENT 'Salary adjustment date',
+    `beforeSalary` int
+(
+    11
+) DEFAULT NULL COMMENT 'Salary adjustment',
+    `afterSalary`  int
+(
+    11
+) DEFAULT NULL COMMENT 'Adjusted salary',
+    `reason`       varchar
+(
+    255
+) DEFAULT NULL COMMENT 'Reason for salary adjustment',
+    `remark`       varchar
+(
+    255
+) DEFAULT NULL COMMENT 'Remarks',
+    PRIMARY KEY
+(`id`
+),
+    KEY `pid`
+(`eid`
+),
+    CONSTRAINT `adjustsalary_ibfk_1` FOREIGN KEY
+(`eid`
+) REFERENCES `employee`
+(`id`
+)
+    ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8;
 
 /*Data for the table `adjustsalary` */
 
@@ -37,40 +67,94 @@ CREATE TABLE `adjustsalary` (
 
 DROP TABLE IF EXISTS `appraise`;
 
-CREATE TABLE `appraise` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `eid` int(11) DEFAULT NULL,
-  `appDate` date DEFAULT NULL COMMENT '考评日期',
-  `appResult` varchar(32) DEFAULT NULL COMMENT '考评结果',
-  `appContent` varchar(255) DEFAULT NULL COMMENT '考评内容',
-  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`id`),
-  KEY `pid` (`eid`),
-  CONSTRAINT `appraise_ibfk_1` FOREIGN KEY (`eid`) REFERENCES `employee` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `appraise`
+(
+    `id`         int
+(
+    11
+) NOT NULL AUTO_INCREMENT,
+    `eid`        int
+(
+    11
+) DEFAULT NULL,
+    `appDate`    date DEFAULT NULL COMMENT 'Evaluation date',
+    `appResult`  varchar
+(
+    32
+) DEFAULT NULL COMMENT 'Evaluation results',
+    `appContent` varchar
+(
+    255
+) DEFAULT NULL COMMENT '考评内容',
+    `remark`     varchar
+(
+    255
+) DEFAULT NULL COMMENT '备注',
+    PRIMARY KEY
+(`id`
+),
+    KEY `pid`
+(`eid`
+),
+    CONSTRAINT `appraise_ibfk_1` FOREIGN KEY
+(`eid`
+) REFERENCES `employee`
+(`id`
+)
+    ) ENGINE = InnoDB
+    DEFAULT CHARSET = utf8;
 DROP TABLE IF EXISTS `mail_send_log`;
 
-CREATE TABLE `mail_send_log` (
-  `msgId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `empId` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT '0' COMMENT '0发送中，1发送成功，2发送失败',
-  `routeKey` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `exchange` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `count` int(11) DEFAULT 0 COMMENT '重试次数',
-  `tryTime` datetime DEFAULT NULL COMMENT '第一次重试时间',
-  `createTime` datetime DEFAULT NULL,
-  `updateTime` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `mail_send_log`
+(
+    `msgId` varchar
+(
+    255
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `empId` int
+(
+    11
+) DEFAULT NULL,
+    `status` int
+(
+    11
+) DEFAULT '0' COMMENT '0发送中，1发送成功，2发送失败',
+    `routeKey` varchar
+(
+    255
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `exchange` varchar
+(
+    255
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `count` int
+(
+    11
+) DEFAULT 0 COMMENT '重试次数',
+    `tryTime` datetime DEFAULT NULL COMMENT '第一次重试时间',
+    `createTime` datetime DEFAULT NULL,
+    `updateTime` datetime DEFAULT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET =utf8mb4 COLLATE =utf8mb4_unicode_ci;
 /*Data for the table `appraise` */
 
 /*Table structure for table `department` */
 
 DROP TABLE IF EXISTS `department`;
 
-CREATE TABLE `department` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) DEFAULT NULL COMMENT '部门名称',
-  `parentId` int(11) DEFAULT NULL,
+CREATE TABLE `department`
+(
+    `id` int
+(
+    11
+) NOT NULL AUTO_INCREMENT,
+    `name` varchar
+(
+    32
+) DEFAULT NULL COMMENT '部门名称',
+    `parentId` int
+(
+    11
+) DEFAULT NULL,
   `depPath` varchar(255) DEFAULT NULL,
   `enabled` tinyint(1) DEFAULT '1',
   `isParent` tinyint(1) DEFAULT '0',
