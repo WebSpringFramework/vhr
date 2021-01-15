@@ -2,9 +2,10 @@ import axios from 'axios'
 import {Message} from 'element-ui';
 import router from '../router'
 import {mymessage} from '@/utils/mymessage';
+import i18n from "@/plugins/i18n";
 
 axios.interceptors.response.use(success => {
-    if (success.status && success.status == 200 && success.data.status == 500) {
+    if (success.status && success.status === 200 && success.data.status === 500) {
         Message.error({message: success.data.msg})
         return;
     }
@@ -13,21 +14,18 @@ axios.interceptors.response.use(success => {
     }
     return success.data;
 }, error => {
-    if (error.response.status == 504 || error.response.status == 404) {
-        Message.error({message: '服务器被吃了( ╯□╰ )'})
-    } else if (error.response.status == 403) {
-        Message.error({message: '权限不足，请联系管理员'})
-    } else if (error.response.status == 401) {
+    if (error.response.status === 504 || error.response.status === 404) {
+        Message.error({message: i18n.t('messageError.theServerEaten')})
+    } else if (error.response.status === 403) {
+        Message.error({message: i18n.t('messageError.insufficientPermissionsContactAdministrator')})
+    } else if (error.response.status === 401) {
         mymessage.error({message: error.response.data.msg ? error.response.data.msg : '尚未登录，请登录'})
         router.replace('/');
+    } else if (error.response.data.msg) {
+        Message.error({message: error.response.data.msg})
     } else {
-        if (error.response.data.msg) {
-            Message.error({message: error.response.data.msg})
-        } else {
-            Message.error({message: '未知错误!'})
-        }
+        Message.error({message: i18n.t('messageError.unknownMistake')})
     }
-    return;
 })
 
 let base = '';

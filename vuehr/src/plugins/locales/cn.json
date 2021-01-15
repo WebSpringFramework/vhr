@@ -1,0 +1,36 @@
+{
+  "login": {
+    "logging": "正在登录...",
+    "loginTitle": "系统登录",
+    "pleaseEnterUserName": "请输入用户名",
+    "pleaseEnterPassword": "请输入密码",
+    "clickPictureReplaceVerificationCode": "点击图片更换验证码",
+    "logIn": "登录",
+    "pleaseEnterVerificationCode": "请输入验证码"
+  },
+  "emp": {
+    "advancedInformation": "高级资料",
+    "pleaseEnterEmployeeNameDirectlyPressEnterSearch": "请输入员工名进行搜索，可以直接回车搜索...",
+    "advancedSearch": "高级搜索",
+    "politicalStatus": "政治面貌",
+    "nation": "民族",
+    "position": "职位",
+    "jobTitle": "职称",
+    "laborContract": "劳动合同",
+    "laborContractU": "劳务合同",
+    "employmentForm": "聘用形式",
+    "department": "所属部门:",
+    "pleaseSelectDepartment": "请选择部门",
+    "entryDate": "入职日期:",
+    "to": "至",
+    "startDate": "开始日期",
+    "endDate": "结束日期",
+    "cancel": "取消",
+    "searchFor": "搜索"
+  },
+  "messageError": {
+    "unknownMistake": "未知错误",
+    "theServerEaten": "服务器被吃了( ╯□╰ )",
+    "insufficientPermissionsContactAdministrator": "权限不足，请联系管理员"
+  }
+}

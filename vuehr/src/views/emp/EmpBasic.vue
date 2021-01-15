@@ -3,7 +3,7 @@
         <div>
             <div style="display: flex;justify-content: space-between">
                 <div>
-                    <el-input placeholder="请输入员工名进行搜索，可以直接回车搜索..." prefix-icon="el-icon-search"
+                    <el-input :placeholder="$t('emp.pleaseEnterEmployeeNameDirectlyPressEnterSearch')" prefix-icon="el-icon-search"
                               clearable
                               @clear="initEmps"
                               style="width: 350px;margin-right: 10px" v-model="keyword"
@@ -14,7 +14,7 @@
                     <el-button type="primary" @click="showAdvanceSearchView = !showAdvanceSearchView">
                         <i :class="showAdvanceSearchView?'fa fa-angle-double-up':'fa fa-angle-double-down'"
                            aria-hidden="true"></i>
-                        高级搜索
+                      {{$t('emp.advancedSearch')}}
                     </el-button>
                 </div>
                 <div>
@@ -43,8 +43,8 @@
                      style="border: 1px solid #409eff;border-radius: 5px;box-sizing: border-box;padding: 5px;margin: 10px 0px;">
                     <el-row>
                         <el-col :span="5">
-                            政治面貌:
-                            <el-select v-model="searchValue.politicId" placeholder="政治面貌" size="mini"
+                            $t('emp.politicalStatus')
+                            <el-select v-model="searchValue.politicId" :placeholder="$t('emp.politicalStatus')" size="mini"
                                        style="width: 130px;">
                                 <el-option
                                         v-for="item in politicsstatus"
@@ -56,7 +56,7 @@
                         </el-col>
                         <el-col :span="4">
                             民族:
-                            <el-select v-model="searchValue.nationId" placeholder="民族" size="mini"
+                            <el-select v-model="searchValue.nationId" placeholder="$t('emp.nation')" size="mini"
                                        style="width: 130px;">
                                 <el-option
                                         v-for="item in nations"
@@ -68,7 +68,7 @@
                         </el-col>
                         <el-col :span="4">
                             职位:
-                            <el-select v-model="searchValue.posId" placeholder="职位" size="mini" style="width: 130px;">
+                            <el-select v-model="searchValue.posId" placeholder="Position" size="mini" style="width: 130px;">
                                 <el-option
                                         v-for="item in positions"
                                         :key="item.id"
@@ -79,7 +79,7 @@
                         </el-col>
                         <el-col :span="4">
                             职称:
-                            <el-select v-model="searchValue.jobLevelId" placeholder="职称" size="mini"
+                            <el-select v-model="searchValue.jobLevelId" placeholder="Job title" size="mini"
                                        style="width: 130px;">
                                 <el-option
                                         v-for="item in joblevels"
@@ -90,19 +90,19 @@
                             </el-select>
                         </el-col>
                         <el-col :span="7">
-                            聘用形式:
+                            $t('emp.employmentForm')
                             <el-radio-group v-model="searchValue.engageForm">
-                                <el-radio label="劳动合同">劳动合同</el-radio>
-                                <el-radio label="劳务合同">劳务合同</el-radio>
+                                <el-radio label="Labor Contract">$t('emp.laborContract')</el-radio>
+                                <el-radio label="Labor contract">$t('emp.laborContractU')</el-radio>
                             </el-radio-group>
                         </el-col>
                     </el-row>
                     <el-row style="margin-top: 10px">
                         <el-col :span="5">
-                            所属部门:
+                          $t('emp.department')
                             <el-popover
                                     placement="right"
-                                    title="请选择部门"
+                                    title="$t('emp.pleaseSelectDepartment')"
                                     width="200"
                                     trigger="manual"
                                     v-model="popVisible2">
@@ -115,21 +115,21 @@
                             </el-popover>
                         </el-col>
                         <el-col :span="10">
-                            入职日期:
+                            $t('emp.entryDate')
                             <el-date-picker
                                     v-model="searchValue.beginDateScope"
                                     type="daterange"
                                     size="mini"
                                     unlink-panels
                                     value-format="yyyy-MM-dd"
-                                    range-separator="至"
-                                    start-placeholder="开始日期"
-                                    end-placeholder="结束日期">
+                                    range-separator="$t('emp.to')"
+                                    start-placeholder="$t('emp.$t('emp.pleaseSelectDepartment')')"
+                                    end-placeholder="$t('emp.endDate')">
                             </el-date-picker>
                         </el-col>
                         <el-col :span="5" :offset="4">
-                            <el-button size="mini">取消</el-button>
-                            <el-button size="mini" icon="el-icon-search" type="primary" @click="initEmps('advanced')">搜索</el-button>
+                            <el-button size="mini">{{$t('emp.cancel')}}</el-button>
+                            <el-button size="mini" icon="el-icon-search" type="primary" @click="initEmps('advanced')">{{$t('emp.searchFor')}}</el-button>
                         </el-col>
                     </el-row>
                 </div>
@@ -913,8 +913,8 @@
 </script>
 
 <style>
-    /* 可以设置不同的进入和离开动画 */
-    /* 设置持续时间和动画函数 */
+    /* Can set different entry and exit animations */
+    /* Set duration and animation function */
     .slide-fade-enter-active {
         transition: all .8s ease;
     }

@@ -1,4 +1,4 @@
-菜单项数据加载成功之后，在前端有几个可以存放的地方：
+After the menu item data is successfully loaded, there are several places that can be stored on the front end:
 
 1. sessionStorage
 2. localStorage
