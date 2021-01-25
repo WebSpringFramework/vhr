@@ -1,13 +1,11 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import Login from './views/Login.vue'
 import Home from './views/Home.vue'
 import FriendChat from './views/chat/FriendChat.vue'
 import HrInfo from './views/HrInfo.vue'
 
-Vue.use(Router)
-
-export default new Router({
+export default new createRouter({
+    mode: createWebHistory(),
     routes: [
         {
             path: '/',

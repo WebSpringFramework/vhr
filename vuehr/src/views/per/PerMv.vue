@@ -1,6 +1,6 @@
 <template>
     <div>
-        员工调动
+      {{ $t("per.staffTransfer") }}
     </div>
 </template>
 

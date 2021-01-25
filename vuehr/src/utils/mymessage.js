@@ -1,7 +1,7 @@
-import {
-    Message
-} from 'element-ui';
+import Message from "element-plus";
+
 const showMessage = Symbol('showMessage')
+
 class JavaboyMessage {
     [showMessage](type, options, single) {
         if (single) {

@@ -31,27 +31,29 @@
 
 <script>
 
-    export default {
-        name: "Login",
-        data() {
-            return {
-                loading: false,
-                vcUrl: '/verifyCode?time='+new Date(),
-                loginForm: {
-                    username: 'admin',
-                    password: '123',
-                    code:''
-                },
-                checked: true,
-                rules: {
-                    username: [{required: true, message: '$t("login.pleaseEnterUserName")', trigger: 'blur'}],
-                    password: [{required: true, message: '$t("login.pleaseEnterPassword")', trigger: 'blur'}],
-                    code: [{required: true, message: '$t("login.pleaseEnterVerificationCode")', trigger: 'blur'}]
-                }
-            }
-        },
-        methods: {
-            updateVerifyCode() {
+import i18n from "@/plugins/i18n";
+
+export default {
+  name: "Login",
+  data() {
+    return {
+      loading: false,
+      vcUrl: '/verifyCode?time=' + new Date(),
+      loginForm: {
+        username: 'admin',
+        password: '123',
+        code: ''
+      },
+      checked: true,
+      rules: {
+        username: [{required: true, message: i18n.t("login.pleaseEnterUserName"), trigger: 'blur'}],
+        password: [{required: true, message: i18n.t("login.pleaseEnterPassword"), trigger: 'blur'}],
+        code: [{required: true, message: i18n.t("login.pleaseEnterVerificationCode"), trigger: 'blur'}]
+      }
+    }
+  },
+  methods: {
+    updateVerifyCode() {
                 this.vcUrl = '/verifyCode?time='+new Date();
             },
             submitLogin() {

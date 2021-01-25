@@ -1,8 +1,8 @@
 import axios from 'axios'
-import {Message} from 'element-ui';
 import router from '../router'
 import {mymessage} from '@/utils/mymessage';
 import i18n from "@/plugins/i18n";
+import * as Message from "element-plus";
 
 axios.interceptors.response.use(success => {
     if (success.status && success.status === 200 && success.data.status === 500) {

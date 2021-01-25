@@ -1,0 +1,78 @@
+{
+  "login": {
+    "logging": "正在登录...",
+    "loginTitle": "系统登录",
+    "pleaseEnterUserName": "请输入用户名",
+    "pleaseEnterPassword": "请输入密码",
+    "clickPictureReplaceVerificationCode": "点击图片更换验证码",
+    "logIn": "登录",
+    "pleaseEnterVerificationCode": "请输入验证码"
+  },
+  "home": {
+    "homeWelcome": "欢迎来到微人事！",
+    "home": "首页",
+    "userInfo": "个人中心",
+    "setting": "设置",
+    "logout": "注销登录",
+    "doYouWantLogout": "此操作将注销登录, 是否继续?",
+    "operationCancelled": "已取消操作"
+  },
+  "emp": {
+    "advancedInformation": "高级资料",
+    "pleaseEnterEmployeeNameDirectlyPressEnterSearch": "请输入员工名进行搜索，可以直接回车搜索...",
+    "advancedSearch": "高级搜索",
+    "politicalStatus": "政治面貌",
+    "nation": "民族",
+    "position": "职位",
+    "jobTitle": "职称",
+    "laborContract": "劳动合同",
+    "laborContractU": "劳务合同",
+    "employmentForm": "聘用形式",
+    "department": "所属部门:",
+    "pleaseSelectDepartment": "请选择部门",
+    "entryDate": "入职日期:",
+    "to": "至",
+    "startDate": "开始日期",
+    "endDate": "结束日期",
+    "cancel": "取消",
+    "searchFor": "搜索"
+  },
+  "per": {
+    "staffProfile": "员工资料",
+    "staffTransfer": "员工调动",
+    "employeeTraining": "员工培训"
+  },
+  "sal": {
+    "endMonthProcessing": "月末处理",
+    "payrollQuery": "工资表查询",
+    "addPayrollAccount": "添加工资账套",
+    "setAccountName": "账套名称",
+    "basicWage": "基本工资",
+    "transportAllowance": "交通补助",
+    "lunchSubsidy": "午餐补助",
+    "edit": "编辑",
+    "delete": "删除",
+    "addPayrollAccounSet": "添加工资账套",
+    "bonus": "奖金",
+    "pensionRatio": "养老金比率",
+    "pensionBase": "养老金基数",
+    "medicalInsuranceRatio": "医疗保险比率",
+    "medicalInsuranceBase": "医疗保险基数",
+    "providentFundRatio": "公积金比率",
+    "providentFundBase": "公积金基数",
+    "modifyPayrollAccountSet": "修改工资账套",
+    "thisOperationDeleteYouWantContinue": "此操作将删除【{name}】账套，是否继续？"
+  },
+  "buttonCommon": {
+    "cancel": "取消",
+    "confirm": "确定"
+  },
+  "titleCommon": {
+    "alert": "提示"
+  },
+  "messageError": {
+    "unknownMistake": "未知错误",
+    "theServerEaten": "服务器被吃了( ╯□╰ )",
+    "insufficientPermissionsContactAdministrator": "权限不足，请联系管理员"
+  }
+}

@@ -1,6 +1,6 @@
 <template>
     <div>
-        员工培训
+      {{ $t("per.employeeTraining") }}
     </div>
 </template>
 

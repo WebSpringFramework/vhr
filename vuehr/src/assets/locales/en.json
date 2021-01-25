@@ -1,0 +1,79 @@
+{
+  "login": {
+    "logging": "Logging in...",
+    "loginTitle": "System login",
+    "pleaseEnterUserName": "Please enter user name",
+    "pleaseEnterPassword": "Please enter password",
+    "clickPictureReplaceVerificationCode": "Click the picture to replace the verification code",
+    "logIn": "Log in",
+    "pleaseEnterVerificationCode": "Please enter verification code"
+  },
+  "home": {
+    "homeWelcome": "Welcome to Human Resource Management!",
+    "hrm": "HRM",
+    "home": "Home",
+    "userInfo": "Personal center",
+    "setting": "Profile",
+    "logout": "Logout",
+    "doYouWantLogout": "This operation will log out, do you want to continue?",
+    "operationCancelled": "Operation cancelled"
+  },
+  "emp": {
+    "advancedInformation": "Advanced Information",
+    "pleaseEnterEmployeeNameDirectlyPressEnterSearch": "Please enter the employee name to search, you can directly press Enter to search...",
+    "advancedSearch": "Advanced search",
+    "politicalStatus": "Political status",
+    "nation": "Nation",
+    "position": "Position",
+    "jobTitle": "Job title",
+    "laborContract": "Labor Contract",
+    "laborContractU": "Labor contract",
+    "employmentForm": "Employment form:",
+    "department": "Department:",
+    "pleaseSelectDepartment": "Please select a department",
+    "entryDate": "Entry date:",
+    "to": "to",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "cancel": "Cancel",
+    "searchFor": "search for"
+  },
+  "per": {
+    "staffProfile": "Staff profile",
+    "staffTransfer": "Staff transfer",
+    "employeeTraining": "Employee training"
+  },
+  "sal": {
+    "endMonthProcessing": "End of month processing",
+    "payrollQuery": "Payroll query",
+    "addPayrollAccount": "Add payroll account set",
+    "setAccountName": "Set of Account Name",
+    "basicWage": "Basic wage",
+    "transportAllowance": "Transport Allowance",
+    "lunchSubsidy": "Lunch subsidy",
+    "edit": "Edit",
+    "delete": "Delete",
+    "addPayrollAccounSet": "Add payroll account set",
+    "bonus": "Bonus",
+    "pensionRatio": "Pension ratio",
+    "pensionBase": "Pension base",
+    "medicalInsuranceRatio": "Medical insurance ratio",
+    "medicalInsuranceBase": "Medical insurance base",
+    "providentFundRatio": "Provident fund ratio",
+    "providentFundBase": "Provident Fund Base",
+    "modifyPayrollAccountSet": "Modify payroll account set",
+    "thisOperationDeleteYouWantContinue": "This operation will delete [{name}] A/C set, do you want to continue?"
+  },
+  "buttonCommon": {
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "titleCommon": {
+    "alert": "Alert"
+  },
+  "messageError": {
+    "unknownMistake": "Unknown mistake",
+    "theServerEaten": "The server was eaten (╯□╰)",
+    "insufficientPermissionsContactAdministrator": "Insufficient permissions, please contact the administrator"
+  }
+}

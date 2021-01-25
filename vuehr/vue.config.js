@@ -18,6 +18,14 @@ module.exports = {
         port: 8080,
         proxy: proxyObj
     },
+    pluginOptions: {
+        i18n: {
+            locale: 'en',
+            fallbackLocale: 'en',
+            localeDir: 'assets/locales',
+            enableInSFC: true
+        }
+    },
     configureWebpack: config => {
         if (process.env.NODE_ENV === 'production') {
             return {

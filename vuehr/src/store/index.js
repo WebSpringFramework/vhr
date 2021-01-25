@@ -1,15 +1,11 @@
-import Vue from 'vue'
 import Vuex from 'vuex'
-import { Notification } from 'element-ui';
-import {getRequest} from "../utils/api";
+import {getRequest} from "@/utils/api";
 import '../utils/stomp'
 import '../utils/sockjs'
 
-Vue.use(Vuex)
-
 const now = new Date();
 
-const store = new Vuex.Store({
+const store = Vuex.createStore({
     state: {
         routes: [],
         sessions: {},

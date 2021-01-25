@@ -1,6 +1,6 @@
 module.exports = {
     presets: [
-        '@vue/app',
+        "@vue/cli-plugin-babel/preset",
         [
             '@babel/preset-env', {
             modules: false
@@ -10,7 +10,7 @@ module.exports = {
         [
             "component",
             {
-                "libraryName": "element-ui",
+                "libraryName": "element-plus",
                 "styleLibraryName": "theme-chalk"
             }
         ]

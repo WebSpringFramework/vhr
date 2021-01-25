@@ -1,6 +1,6 @@
 <template>
     <div>
-        员工资料
+      {{ $t("per.staffProfile") }}
     </div>
 </template>
 

@@ -1,36 +1,37 @@
 <template>
     <div>
         <div style="display: flex;justify-content: space-between">
-            <el-button icon="el-icon-plus" type="primary" @click="showAddSalaryView">添加工资账套</el-button>
-            <el-button icon="el-icon-refresh" type="success" @click="initSalaries"></el-button>
+          <el-button icon="el-icon-plus" type="primary" @click="showAddSalaryView">{{ $t("per.addPayrollAccount") }}
+          </el-button>
+          <el-button icon="el-icon-refresh" type="success" @click="initSalaries"></el-button>
         </div>
-        <div style="margin-top: 10px">
-            <el-table :data="salaries" border stripe>
-                <el-table-column type="selection" width="55"></el-table-column>
-                <el-table-column width="120" prop="name" label="账套名称"></el-table-column>
-                <el-table-column width="70" prop="basicSalary" label="基本工资"></el-table-column>
-                <el-table-column width="70" prop="trafficSalary" label="交通补助"></el-table-column>
-                <el-table-column width="70" prop="lunchSalary" label="午餐补助"></el-table-column>
-                <el-table-column width="70" prop="bonus" label="奖金"></el-table-column>
-                <el-table-column width="100" prop="createDate" label="启用时间"></el-table-column>
-                <el-table-column label="养老金" align="center">
-                    <el-table-column width="70" prop="pensionPer" label="比率"></el-table-column>
-                    <el-table-column width="70" prop="pensionBase" label="基数"></el-table-column>
-                </el-table-column>
-                <el-table-column label="医疗保险" align="center">
-                    <el-table-column width="70" prop="medicalPer" label="比率"></el-table-column>
-                    <el-table-column width="70" prop="medicalBase" label="基数"></el-table-column>
-                </el-table-column>
-                <el-table-column label="公积金" align="center">
-                    <el-table-column width="70" prop="accumulationFundPer" label="比率"></el-table-column>
-                    <el-table-column width="70" prop="accumulationFundBase" label="基数"></el-table-column>
-                </el-table-column>
-                <el-table-column label="操作">
-                    <template slot-scope="scope">
-                        <el-button @click="showEditSalaryView(scope.row)">编辑</el-button>
-                        <el-button type="danger" @click="deleteSalary(scope.row)">删除</el-button>
-                    </template>
-                </el-table-column>
+      <div style="margin-top: 10px">
+        <el-table :data="salaries" border stripe>
+          <el-table-column type="selection" width="55"></el-table-column>
+          <el-table-column :label="$t('sal.setAccountName')" prop="name" width="120"></el-table-column>
+          <el-table-column :label="$t('sal.basicWage')" prop="basicSalary" width="70"></el-table-column>
+          <el-table-column :label="$t('sal.transportAllowance')" prop="trafficSalary" width="70"></el-table-column>
+          <el-table-column label="$t('sal.basicWage')" prop="lunchSalary" width="70"></el-table-column>
+          <el-table-column label="奖金" prop="bonus" width="70"></el-table-column>
+          <el-table-column label="启用时间" prop="createDate" width="100"></el-table-column>
+          <el-table-column align="center" label="养老金">
+            <el-table-column label="比率" prop="pensionPer" width="70"></el-table-column>
+            <el-table-column label="基数" prop="pensionBase" width="70"></el-table-column>
+          </el-table-column>
+          <el-table-column align="center" label="医疗保险">
+            <el-table-column label="比率" prop="medicalPer" width="70"></el-table-column>
+            <el-table-column label="基数" prop="medicalBase" width="70"></el-table-column>
+          </el-table-column>
+          <el-table-column label="公积金" align="center">
+            <el-table-column width="70" prop="accumulationFundPer" label="比率"></el-table-column>
+            <el-table-column width="70" prop="accumulationFundBase" label="基数"></el-table-column>
+          </el-table-column>
+          <el-table-column label="操作">
+            <template slot-scope="scope">
+              <el-button @click="showEditSalaryView(scope.row)">{{ $t('sal.edit') }}</el-button>
+              <el-button type="danger" @click="deleteSalary(scope.row)">{{ $t('sal.delete') }}</el-button>
+            </template>
+          </el-table-column>
             </el-table>
         </div>
         <el-dialog
@@ -58,33 +59,33 @@
         name: "SalSob",
         data() {
             return {
-                dialogVisible: false,
-                dialogTitle: '添加工资账套',
-                salaries: [],
-                activeItemIndex: 0,
-                salaryItemName: [
-                    '基本工资',
-                    '交通补助',
-                    '午餐补助',
-                    '奖金',
-                    '养老金比率',
-                    '养老金基数',
-                    '医疗保险比率',
-                    '医疗保险基数',
-                    '公积金比率',
-                    '公积金基数',
-                    '账套名称'
-                ],
-                salary: {
-                    basicSalary: 0,
-                    trafficSalary: 0,
-                    lunchSalary: 0,
-                    bonus: 0,
-                    pensionPer: 0,
-                    pensionBase: 0,
-                    medicalPer: 0,
-                    medicalBase: 0,
-                    accumulationFundPer: 0,
+              dialogVisible: false,
+              dialogTitle: i18n.t('sal.addPayrollAccounSet'),
+              salaries: [],
+              activeItemIndex: 0,
+              salaryItemName: [
+                i18n.t('sal.basicWage'),
+                i18n.t('sal.transportAllowance'),
+                i18n.t('sal.lunchSubsidy'),
+                i18n.t('sal.bonus'),
+                i18n.t('sal.pensionRatio'),
+                i18n.t('sal.pensionBase'),
+                i18n.t('sal.medicalInsuranceRatio'),
+                i18n.t('sal.medicalInsuranceBase'),
+                i18n.t('sal.providentFundRatio'),
+                i18n.t('sal.providentFundBase'),
+                i18n.t('sal.setAccountName')
+              ],
+              salary: {
+                basicSalary: 0,
+                trafficSalary: 0,
+                lunchSalary: 0,
+                bonus: 0,
+                pensionPer: 0,
+                pensionBase: 0,
+                medicalPer: 0,
+                medicalBase: 0,
+                accumulationFundPer: 0,
                     accumulationFundBase: 0,
                     name: ''
                 }
@@ -95,65 +96,65 @@
         },
         methods: {
             showEditSalaryView(data) {
-                this.dialogTitle = '修改工资账套';
-                this.dialogVisible = true;
-                this.salary.basicSalary = data.basicSalary;
-                this.salary.trafficSalary = data.trafficSalary;
-                this.salary.lunchSalary = data.lunchSalary;
-                this.salary.bonus = data.bonus;
-                this.salary.pensionPer = data.pensionPer;
-                this.salary.pensionBase = data.pensionBase;
-                this.salary.medicalPer = data.medicalPer;
-                this.salary.medicalBase = data.medicalBase;
-                this.salary.accumulationFundPer = data.accumulationFundPer;
-                this.salary.accumulationFundBase = data.accumulationFundBase;
+              this.dialogTitle = i18n.t('sal.modifyPayrollAccountSet');
+              this.dialogVisible = true;
+              this.salary.basicSalary = data.basicSalary;
+              this.salary.trafficSalary = data.trafficSalary;
+              this.salary.lunchSalary = data.lunchSalary;
+              this.salary.bonus = data.bonus;
+              this.salary.pensionPer = data.pensionPer;
+              this.salary.pensionBase = data.pensionBase;
+              this.salary.medicalPer = data.medicalPer;
+              this.salary.medicalBase = data.medicalBase;
+              this.salary.accumulationFundPer = data.accumulationFundPer;
+              this.salary.accumulationFundBase = data.accumulationFundBase;
                 this.salary.name = data.name;
                 this.salary.id = data.id;
             },
             deleteSalary(data) {
-                this.$confirm('此操作将删除【' + data.name + '】账套，是否继续？', '提示', {
-                    cancelButtonText: '取消',
-                    confirmButtonText: '确定'
-                }).then(() => {
-                    this.deleteRequest("/salary/sob/" + data.id).then(resp => {
-                        if (resp) {
-                            this.initSalaries();
-                        }
-                    })
-                }).catch(() => {
-                    this.$message.info("取消删除!");
+              this.$confirm(i18n.t('sal.thisOperationDeleteYouWantContinue', {name: data.name}), i18n.t('titleCommon.alert'), {
+                cancelButtonText: i18n.t('buttonCommon.cancel'),
+                confirmButtonText: i18n.t('buttonCommon.confirm')
+              }).then(() => {
+                this.deleteRequest("/salary/sob/" + data.id).then(resp => {
+                  if (resp) {
+                    this.initSalaries();
+                  }
                 })
+              }).catch(() => {
+                this.$message.info("取消删除!");
+              })
             },
             preStep() {
-                if (this.activeItemIndex == 0) {
-                    return;
-                } else if (this.activeItemIndex == 10) {
-                    //关闭对话框
-                    this.dialogVisible = false;
-                    return;
-                }
-                this.activeItemIndex--;
+              if (this.activeItemIndex === 0) {
+                return;
+              } else if (this.activeItemIndex === 10) {
+                //关闭对话框
+                this.dialogVisible = false;
+                return;
+              }
+              this.activeItemIndex--;
             },
             nextStep() {
-                if (this.activeItemIndex == 10) {
-                    if (this.salary.id) {
-                        this.putRequest("/salary/sob/", this.salary).then(resp=>{
-                            if (resp) {
-                                this.initSalaries();
-                                this.dialogVisible = false;
-                            }
-                        })
-                    } else {
-                        this.postRequest("/salary/sob/", this.salary).then(resp => {
-                            if (resp) {
-                                this.initSalaries();
-                                this.dialogVisible = false;
-                            }
-                        });
+              if (this.activeItemIndex === 10) {
+                if (this.salary.id) {
+                  this.putRequest("/salary/sob/", this.salary).then(resp => {
+                    if (resp) {
+                      this.initSalaries();
+                      this.dialogVisible = false;
                     }
-                    return;
+                  })
+                } else {
+                  this.postRequest("/salary/sob/", this.salary).then(resp => {
+                    if (resp) {
+                      this.initSalaries();
+                      this.dialogVisible = false;
+                    }
+                  });
                 }
-                this.activeItemIndex++;
+                return;
+              }
+              this.activeItemIndex++;
             },
             showAddSalaryView() {
                 //数据初始化

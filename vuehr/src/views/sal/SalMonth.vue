@@ -1,6 +1,6 @@
 <template>
     <div>
-        月末处理
+      {{ $t("sal.endMonthProcessing") }}
     </div>
 </template>
 
